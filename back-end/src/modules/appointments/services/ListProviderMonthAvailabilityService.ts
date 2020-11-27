@@ -1,5 +1,5 @@
 import { inject, injectable } from 'tsyringe';
-import { getDate, getDaysInMonth, isAfter } from 'date-fns';
+import { getDate, getDaysInMonth } from 'date-fns';
 
 import IAppointmentsRepository from '../repositories/IAppointmentsRepository';
 
@@ -21,7 +21,11 @@ class ListProviderMonthAvailabilityService {
         private appointmentsRepository: IAppointmentsRepository,
     ) {}
 
-    public async execute({ provider_id, year, month }: IRequest): Promise<any> {
+    public async execute({
+        provider_id,
+        year,
+        month,
+    }: IRequest): Promise<IResponse> {
         const appointments = await this.appointmentsRepository.findAllInMonthFromProvider(
             {
                 provider_id,
