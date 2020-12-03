@@ -1,6 +1,6 @@
-import path from 'path';
-import fs from 'fs';
-import uploadConfig from '@config/upload';
+// import path from 'path';
+// import fs from 'fs';
+// import uploadConfig from '@config/upload';
 import { inject, injectable } from 'tsyringe';
 
 import AppError from '@shared/errors/AppError';
@@ -16,7 +16,7 @@ interface IRequest {
 @injectable()
 class UpdateUserAvatarService {
     constructor(
-        @inject('UserRepository')
+        @inject('UsersRepository')
         private usersRepository: IUsersRepository,
 
         @inject('StorageProvider')
